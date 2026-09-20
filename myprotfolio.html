@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sathira Samadith | Creative Technologist</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cyberBg: '#0a0a0c',
+                        cyberCard: '#121215',
+                        cyberAccent: '#6366f1', // Electric Indigo/Cyan hybrid
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-cyberBg text-gray-100 font-sans antialiased selection:bg-indigo-500 selection:text-white">
+
+    <!-- 🛠️ GLOBAL NAVIGATION BAR -->
+    <header class="sticky top-0 z-50 bg-cyberBg/70 backdrop-blur-md border-b border-gray-800/50">
+        <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#" class="text-lg font-mono font-bold tracking-wider text-white hover:text-indigo-400 transition-colors">
+                SATHIRA.S <span class="text-indigo-500">//</span>
+            </a>
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-400">
+                <a href="#work" class="hover:text-white transition-colors">Work</a>
+                <a href="#skills" class="hover:text-white transition-colors">Skills</a>
+                <a href="#about" class="hover:text-white transition-colors">About</a>
+                <a href="#contact" class="text-indigo-400 hover:text-indigo-300 transition-colors">Contact ↗</a>
+            </div>
+            <!-- Mobile Menu Icon Placeholder -->
+            <button class="md:hidden text-gray-400 hover:text-white">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </nav>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6">
+
+        <!-- 🌌 SECTION 1: THE HERO CANVAS -->
+        <section class="min-h-[calc(100vh-4rem)] flex flex-col justify-center items-start relative py-12">
+            <!-- Subtle background accent glow -->
+            <div class="absolute top-1/4 right-10 w-72 h-72 bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+            
+            <div class="inline-flex items-center space-x-2 bg-indigo-950/40 border border-indigo-800/30 px-3 py-1 rounded-full text-xs text-indigo-300 font-medium mb-6">
+                <span class="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></span>
+                <span>Available for Freelance & Research</span>
+            </div>
+
+            <h1 class="text-4xl md:text-7xl font-extrabold tracking-tight text-white mb-4">
+                SATHIRA SAMADITH
+            </h1>
+            <h2 class="text-2xl md:text-4xl font-bold text-gray-400 mb-6">
+                Engineering Intelligence. Designing Experiences.
+            </h2>
+            <p class="text-gray-400 max-w-2xl text-lg mb-8 leading-relaxed">
+                A hybrid Computing undergraduate bridging the gap between advanced AI/ML algorithms and premium, high-impact visual design. I turn complex problems into aesthetic digital realities.
+            </p>
+            
+            <div class="flex flex-wrap gap-4">
+                <a href="#work" class="bg-indigo-600 hover:bg-indigo-500 text-white font-medium px-6 py-3 rounded-lg transition-all shadow-lg shadow-indigo-600/20 flex items-center gap-2">
+                    View Showcase <i class="fa-solid fa-arrow-down text-sm"></i>
+                </a>
+                <a href="#contact" class="bg-transparent hover:bg-gray-800/50 text-gray-300 border border-gray-700 font-medium px-6 py-3 rounded-lg transition-all flex items-center gap-2">
+                    Let's Talk <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- 📁 SECTION 2: SELECTED SHOWCASE -->
+        <section id="work" class="py-20 border-t border-gray-900">
+            <div class="mb-12">
+                <span class="font-mono text-xs text-indigo-400 tracking-widest block mb-2">// 01 . SELECTED WORK</span>
+                <h3 class="text-3xl font-bold text-white">Project Concepts</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Card 1 -->
+                <div class="group bg-cyberCard border border-gray-800/60 rounded-xl overflow-hidden hover:border-indigo-500/40 transition-all duration-300 flex flex-col justify-between">
+                    <div class="aspect-video bg-gray-900 flex items-center justify-center relative overflow-hidden text-gray-600">
+                        <!-- Placeholder for your UI/Video Loop -->
+                        <i class="fa-solid fa-brain text-5xl group-hover:scale-110 transition-transform duration-300 text-indigo-500/20"></i>
+                        <span class="absolute bottom-3 right-3 text-xs font-mono bg-black/50 text-gray-400 px-2 py-1 rounded">Interactive Frame</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex gap-2 mb-3">
+                            <span class="text-[10px] uppercase font-mono tracking-wider bg-gray-800 text-gray-300 px-2 py-0.5 rounded">AI Backend</span>
+                            <span class="text-[10px] uppercase font-mono tracking-wider bg-gray-800 text-gray-300 px-2 py-0.5 rounded">UI/UX</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">SmartCreative AI Engine</h4>
+                        <p class="text-gray-400 text-sm mb-4">A custom web application demonstrating computer vision UI styling and intelligent image enhancement processing loops.</p>
+                        <a href="#" class="text-sm font-medium text-indigo-400 hover:text-indigo-300 flex items-center gap-1 mt-auto">View Code Engine <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group bg-cyberCard border border-gray-800/60 rounded-xl overflow-hidden hover:border-indigo-500/40 transition-all duration-300 flex flex-col justify-between">
+                    <div class="aspect-video bg-gray-900 flex items-center justify-center relative overflow-hidden text-gray-600">
+                        <!-- Placeholder for your 3D Asset Loop -->
+                        <i class="fa-solid fa-cube text-5xl group-hover:scale-110 transition-transform duration-300 text-indigo-500/20"></i>
+                        <span class="absolute bottom-3 right-3 text-xs font-mono bg-black/50 text-gray-400 px-2 py-1 rounded">3D Render Showcase</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex gap-2 mb-3">
+                            <span class="text-[10px] uppercase font-mono tracking-wider bg-gray-800 text-gray-300 px-2 py-0.5 rounded">3D Modeling</span>
+                            <span class="text-[10px] uppercase font-mono tracking-wider bg-gray-800 text-gray-300 px-2 py-0.5 rounded">Motion</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Abstract Motion Design Loop</h4>
+                        <p class="text-gray-400 text-sm mb-4">A visual narrative demonstrating render layering, 3D physics modeling transformations, and creative video sequencing execution.</p>
+                        <a href="#" class="text-sm font-medium text-indigo-400 hover:text-indigo-300 flex items-center gap-1 mt-auto">Watch Motion Concept <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group bg-cyberCard border border-gray-800/60 rounded-xl overflow-hidden hover:border-indigo-500/40 transition-all duration-300 flex flex-col justify-between">
+                    <div class="aspect-video bg-gray-900 flex items-center justify-center relative overflow-hidden text-gray-600">
+                        <i class="fa-solid fa-code text-5xl group-hover:scale-110 transition-transform duration-300 text-indigo-500/20"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex gap-2 mb-3">
+                            <span class="text-[10px] uppercase font-mono tracking-wider bg-gray-800 text-gray-300 px-2 py-0.5 rounded">Full Stack</span>
+                            <span class="text-[10px] uppercase font-mono tracking-wider bg-gray-800 text-gray-300 px-2 py-0.5 rounded">Tailwind</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Next-Gen Custom Architecture Website</h4>
+                        <p class="text-gray-400 text-sm mb-4">A fully reactive, highly responsive deployment showcasing modern OOP principles applied directly to client interfaces.</p>
+                        <a href="https://github.com/sathirasamadith988" target="_blank" class="text-sm font-medium text-indigo-400 hover:text-indigo-300 flex items-center gap-1 mt-auto">View GitHub Repository <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 4 (Placeholder Link) -->
+                <div class="bg-cyberCard border border-dashed border-gray-800 rounded-xl p-8 flex flex-col justify-center items-center text-center">
+                    <i class="fa-brands fa-behance text-4xl text-gray-600 mb-3"></i>
+                    <h4 class="text-lg font-bold text-white mb-1">Visual Design Portfolio</h4>
+                    <p class="text-gray-400 text-sm max-w-xs mb-4">Graphic works, brand assets, and creative lookbooks currently syncing to Behance.</p>
+                    <span class="text-xs font-mono text-gray-500 bg-gray-900 px-3 py-1 rounded-full">Updating Soon</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 🧠 SECTION 3: THE SPLIT MIND (SKILLS MATRIX) -->
+        <section id="skills" class="py-20 border-t border-gray-900">
+            <div class="mb-12">
+                <span class="font-mono text-xs text-indigo-400 tracking-widest block mb-2">// 02 . SKILLS & ARCHITECTURE</span>
+                <h3 class="text-3xl font-bold text-white">Dual Capability Matrix</h3>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <!-- Column 1 -->
+                <div class="bg-cyberCard border border-gray-800 p-8 rounded-xl">
+                    <h4 class="text-lg font-mono font-bold text-white mb-6 flex items-center gap-2">
+                        <span class="w-1.5 h-3 bg-indigo-500 rounded-sm"></span> THE ENGINEER (Logic & Data)
+                    </h4>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li class="flex items-center gap-3"><i class="fa-brands fa-python text-indigo-400 w-5 text-center text-base"></i> Python / PyTorch / TensorFlow</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-chart-line text-indigo-400 w-5 text-center"></i> Machine Learning & Dataset Training</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-laptop-code text-indigo-400 w-5 text-center"></i> Full Stack Development (OOP Infrastructure)</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-gears text-indigo-400 w-5 text-center"></i> Systems Architecture & Analytical Problem Solving</li>
+                    </ul>
+                </div>
+
+                <!-- Column 2 -->
+                <div class="bg-cyberCard border border-gray-800 p-8 rounded-xl">
+                    <h4 class="text-lg font-mono font-bold text-white mb-6 flex items-center gap-2">
+                        <span class="w-1.5 h-3 bg-pink-500 rounded-sm"></span> THE CREATIVE (Aesthetics & Motion)
+                    </h4>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-palette text-pink-400 w-5 text-center"></i> Graphic Design & Visual Typography</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-cube text-pink-400 w-5 text-center"></i> 3D Modeling & Spatial Asset Creation</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-video text-pink-400 w-5 text-center"></i> High-End Video Editing & Motion Graphics</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-wand-magic-sparkles text-pink-400 w-5 text-center"></i> Brand Identity Design & Content Creation</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bento Box Footnote -->
+            <div id="about" class="bg-gradient-to-r from-indigo-950/20 to-cyberCard border border-gray-800 p-6 rounded-xl flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div>
+                    <h4 class="text-white font-bold text-base mb-1">Academic Profile & Leadership</h4>
+                    <p class="text-gray-400 text-sm max-w-2xl">BSc (Hons) in Computing & Information Systems Undergraduate. Equipped with strong interpersonal leadership skills to run collaborative projects and coordinate design-to-code pipelines.</p>
+                </div>
+                <div class="text-xs font-mono text-indigo-400 bg-indigo-950/50 border border-indigo-900/50 px-3 py-1 rounded">
+                    CIS Undergrad
+                </div>
+            </div>
+        </section>
+
+        <!-- 📬 SECTION 4: CONNECT -->
+        <section id="contact" class="py-20 border-t border-gray-900 text-center md:text-left">
+            <div class="max-w-2xl">
+                <span class="font-mono text-xs text-indigo-400 tracking-widest block mb-2">// 03 . CONTACT</span>
+                <h3 class="text-4xl font-extrabold text-white mb-4">Let's build something intelligent.</h3>
+                <p class="text-gray-400 mb-8 leading-relaxed">
+                    Have an interesting project, ML implementation concept, or looking to add a multidisciplinary creative technologist to your team? Let's talk.
+                </p>
+                <a href="mailto:sathirasamadith500@gmail.com" class="inline-flex items-center gap-3 text-xl md:text-2xl font-bold text-white hover:text-indigo-400 transition-colors group">
+                    <i class="fa-regular fa-envelope text-indigo-500 group-hover:scale-110 transition-transform"></i>
+                    sathirasamadith500@gmail.com
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 🧱 FOOTER -->
+    <footer class="border-t border-gray-900 bg-black/40 py-8 text-sm text-gray-500 font-mono">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>
+                © 2026 Sathira Samadith. Custom coded from scratch.
+            </div>
+            <div class="flex space-x-6 text-base">
+                <a href="https://github.com/sathirasamadith988" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-github"></i></a>
+                <a href="#" class="hover:text-white transition-colors opacity-40 cursor-not-allowed"><i class="fa-brands fa-behance"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
