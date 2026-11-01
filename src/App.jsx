@@ -6,12 +6,13 @@ import {
   BriefcaseBusiness,
   Code2,
   Cuboid,
-  ExternalLink,
   GraduationCap,
   Layers3,
+  MapPin,
   Mail,
   Menu,
   Palette,
+  Phone,
   Sparkles,
   X,
 } from 'lucide-react';
@@ -52,12 +53,20 @@ const creativeSkills = [
   ['Brand identity & content creation', Sparkles],
 ];
 
+const softSkills = [
+  ['Communication & collaboration', Sparkles],
+  ['Leadership & project coordination', BriefcaseBusiness],
+  ['Creative problem solving', BrainCircuit],
+  ['Adaptability & continuous learning', GraduationCap],
+];
+
 function SectionLabel({ children, index }) {
   return <p className="section-label">// {index} . {children}</p>;
 }
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeProfileTab, setActiveProfileTab] = useState('skills');
   const [cursorPosition, setCursorPosition] = useState({ x: -20, y: -20 });
 
   useEffect(() => {
@@ -93,10 +102,10 @@ function App() {
       <main id="top">
         <section className="hero container">
           <div className="hero-copy">
-            <h1 className="hero-name">Hello, I&apos;m<br /><em>Sathira Samadith</em></h1>
+            <h1 className="hero-name"><span className="hero-outline-text">Hello, I&apos;m</span><br /><em>Sathira Samadith</em></h1>
             <p className="hero-lede hero-roles" aria-label="Full Stack Developer, Graphic Designer and Freelancer">
-              <span>Full Stack Developer</span>
-              <span>Graphic Designer and Freelancer</span>
+              <RoleText text="Full Stack Developer" typingDuration="2.8s" typingDelay=".4s" letterStart="3.25s" />
+              <RoleText text="Graphic Designer and Freelancer" typingDuration="3.4s" typingDelay="3.5s" letterStart="6.95s" />
             </p>
             <p className="hero-description">I am an undergraduate pursuing a BSc (Hons) in Computing and Information Systems, passionate about full-stack web development, graphic design, and freelance digital solutions. I bridge the gap between technical software architecture and compelling visual design to build scalable, high-performance web applications and cohesive brand identities.</p>
             <div className="hero-actions">
@@ -105,8 +114,8 @@ function App() {
             </div>
             <div className="hero-socials" aria-label="Social links">
               <a href="https://github.com/sathirasamadith988" target="_blank" rel="noreferrer" aria-label="GitHub"><svg className="github-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.084-.729.084-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.834 2.809 1.304 3.495.997.108-.776.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" /></svg></a>
+              <a href="https://www.linkedin.com/in/sathira-samadith-59412938/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><img className="linkedin-icon" src="/linkedin-logo.png" alt="" /></a>
               <a href="https://mail.google.com/mail/?view=cm&fs=1&to=sathirasamadith500%40gmail.com" target="_blank" rel="noreferrer" aria-label="Email"><Mail size={17} /></a>
-              <a href="#work" aria-label="Projects"><ExternalLink size={17} /></a>
               <a href="#skills" aria-label="Skills"><Sparkles size={17} /></a>
             </div>
           </div>
@@ -137,17 +146,59 @@ function App() {
         </section>
 
         <section className="section skills-section container" id="skills">
-          <div className="section-heading"><SectionLabel index="02">Skills & architecture</SectionLabel><h2>Dual capability <em>matrix</em></h2></div>
-          <div className="skill-grid">
-            <SkillPanel title="The engineer" subtitle="Logic & data" skills={engineerSkills} color="violet" />
-            <SkillPanel title="The creative" subtitle="Aesthetics & motion" skills={creativeSkills} color="coral" />
+          <div className="profile-heading"><SectionLabel index="02">Skills & background</SectionLabel><h2>Why&nbsp;<em>hire me?</em></h2><p>A multidisciplinary developer and designer who brings technical thinking, visual clarity, and dependable execution to every project.</p></div>
+          <div className="profile-layout">
+            <div className="profile-tabs" role="tablist" aria-label="Profile information">
+              {[
+                ['experience', 'Experience'],
+                ['education', 'Education'],
+                ['skills', 'Skills'],
+                ['about', 'About me'],
+              ].map(([tab, label]) => (
+                <button className={activeProfileTab === tab ? 'is-active' : ''} type="button" role="tab" aria-selected={activeProfileTab === tab} onClick={() => setActiveProfileTab(tab)} key={tab}>{label}</button>
+              ))}
+            </div>
+            <div className="profile-content">
+              {activeProfileTab === 'experience' && <ProfilePanel title="My experience" intro="Building practical digital experiences across development, design, and freelance work."><div className="profile-card-grid"><ProfileCard eyebrow="Full-stack development" title="Digital products that work beautifully" description="Responsive web experiences built with thoughtful architecture, clear interfaces, and dependable front-end and back-end foundations." /><ProfileCard eyebrow="Graphic design" title="Visual identities with a point of view" description="Brand systems, campaign visuals, and digital compositions designed to make ideas clearer and more memorable." /></div></ProfilePanel>}
+              {activeProfileTab === 'education' && <ProfilePanel title="My education" intro="Currently developing a strong foundation in computing, information systems, and collaborative problem solving."><div className="profile-card-grid"><ProfileCard eyebrow="Current" title="BSc (Hons) in Computing and Information Systems" description="Undergraduate at SUSL, building skills across software development, systems architecture, and digital solutions." /><ProfileCard eyebrow="Focus" title="Technical and creative practice" description="Combining full-stack development, machine learning foundations, graphic design, and visual communication." /></div></ProfilePanel>}
+              {activeProfileTab === 'skills' && <ProfilePanel title="My skills" intro="Technical expertise supported by strong communication, collaboration, and problem-solving abilities."><div className="profile-card-grid"><ProfileCard eyebrow="Technical skills" title="Development & design" skills={[...engineerSkills, ...creativeSkills]} /><ProfileCard eyebrow="Soft skills" title="People & process" skills={softSkills} /></div></ProfilePanel>}
+              {activeProfileTab === 'about' && <ProfilePanel title="About me" intro="A multidisciplinary creative technologist who bridges software architecture and compelling visual design."><div className="about-profile"><p>I am a <strong>Full-Stack Developer, UI/UX Designer, and Tech Entrepreneur</strong> currently pursuing a BSc (Hons) in Computing and Information Systems at Sabaragamuwa University of Sri Lanka. As the founder of <strong>VibeAds Studio</strong>, a digital advertising and creative agency, I combine strategic vision with technical execution to deliver impactful brand identities, visual experiences, and custom digital solutions.</p><p>My engineering stack centers on modern web and mobile ecosystems, including <strong>Next.js, React, TypeScript, Flutter, and Firebase</strong>, supported by relational database management in <strong>MySQL and SQL Server</strong>. Backed by hands-on proficiency in design systems with <strong>Figma and Adobe Creative Suite</strong>, I take a human-centered approach to software engineering, ensuring applications are technically resilient, scalable, and intuitive to use.</p><p>Beyond core technical skills, I thrive in collaborative environments where <strong>adaptability, critical thinking, and proactive problem-solving</strong> drive results. Through leading project teams, coordinating with stakeholders, and applying Agile workflows, I ensure seamless communication between design, engineering, and client goals.</p></div></ProfilePanel>}
+            </div>
           </div>
-          <div className="about-strip" id="about"><GraduationCap size={28} /><div><p className="project-type">Academic profile & leadership</p><p>Undergraduate at Computing & Information Systems, BSc (Hons), SUSL. Equipped with strong interpersonal leadership skills to run collaborative projects and coordinate design-to-code pipelines.</p></div><span>CIS undergrad</span></div>
         </section>
 
         <section className="contact-section container" id="contact">
-          <SectionLabel index="03">Contact</SectionLabel><h2>Let&apos;s build something <em>intelligent.</em></h2><p>Have an interesting project, ML implementation concept, or need a multidisciplinary creative technologist on your team? Let&apos;s talk.</p>
-          <a className="email-link" href="mailto:sathirasamadith500@gmail.com"><Mail size={20} /> sathirasamadith500@gmail.com <ArrowUpRight size={18} /></a>
+          <SectionLabel index="03">Contact</SectionLabel>
+          <div className="contact-layout">
+            <form className="contact-form" action="mailto:sathirasamadith500@gmail.com" method="post" encType="text/plain">
+              <h2>Let&apos;s work <em>together</em></h2>
+              <p>Have a project in mind? Share a few details and let&apos;s create something useful, distinctive, and ready for the real world.</p>
+              <div className="contact-fields">
+                <input type="text" name="firstName" placeholder="First name" aria-label="First name" required />
+                <input type="text" name="lastName" placeholder="Last name" aria-label="Last name" required />
+                <input type="email" name="email" placeholder="Email address" aria-label="Email address" required />
+                <input type="tel" name="phone" placeholder="Phone number" aria-label="Phone number" />
+              </div>
+              <select name="service" aria-label="Select a service" defaultValue="">
+                <option value="" disabled>Select a service</option>
+                <option>Full-stack development</option>
+                <option>UI/UX design</option>
+                <option>Graphic design</option>
+                <option>Digital advertising</option>
+              </select>
+              <textarea name="message" placeholder="Type your message here..." aria-label="Message" required />
+              <button type="submit">Send message <ArrowUpRight size={15} /></button>
+            </form>
+            <div className="contact-details">
+              <h2>Let&apos;s build something <em>intelligent.</em></h2>
+              <p>Connect with me about development, design, digital advertising, or a custom digital solution.</p>
+              <div className="contact-detail-list">
+                <a href="mailto:sathirasamadith500@gmail.com"><span><Mail size={20} /></span><div><small>Email</small><strong>sathirasamadith500@gmail.com</strong></div></a>
+                <a href="tel:+94717954537"><span><Phone size={20} /></span><div><small>Phone</small><strong>+94 71 795 45 37</strong></div></a>
+                <div><span><MapPin size={20} /></span><div><small>Location</small><strong>Balangoda</strong></div></div>
+              </div>
+            </div>
+          </div>
         </section>
       </main>
 
@@ -158,6 +209,18 @@ function App() {
 
 function SkillPanel({ title, subtitle, skills, color }) {
   return <div className={`skill-panel skill-${color}`}><div className="skill-title"><span className="skill-mark" /><h3>{title}<small>{subtitle}</small></h3></div><ul>{skills.map(([label, Icon]) => <li key={label}><Icon size={18} /> <span>{label}</span></li>)}</ul></div>;
+}
+
+function ProfilePanel({ title, intro, children }) {
+  return <div className="profile-panel"><div className="profile-panel-heading"><h3>{title}</h3><p>{intro}</p></div>{children}</div>;
+}
+
+function ProfileCard({ eyebrow, title, description, skills }) {
+  return <article className="profile-card"><p className="profile-card-eyebrow">{eyebrow}</p><h4>{title}</h4>{skills ? <ul>{skills.map(([label, Icon]) => <li key={label}><Icon size={16} /> <span>{label}</span></li>)}</ul> : <p>{description}</p>}</article>;
+}
+
+function RoleText({ text, typingDuration, typingDelay, letterStart }) {
+  return <span style={{ '--typing-duration': typingDuration, '--typing-delay': typingDelay, '--letter-start': letterStart }}>{[...text].map((character, index) => <span className="role-letter" style={{ '--letter-index': index }} key={`${character}-${index}`}>{character === ' ' ? '\u00a0' : character}</span>)}</span>;
 }
 
 export default App;
