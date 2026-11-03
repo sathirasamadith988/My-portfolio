@@ -33,7 +33,7 @@ a { color: inherit; text-decoration: none; }
 h1, h2, h3, p { margin-top: 0; }
 h1 { font: 700 clamp(4.5rem, 10vw, 8.5rem)/.84 'Space Grotesk', sans-serif; letter-spacing: -.08em; text-transform: uppercase; margin: 0 0 32px; }
 h1 em, h2 em { color: var(--violet); font-style: normal; }
-.hero-lede { font: 500 clamp(1.6rem, 3vw, 2.65rem)/1.12 'Space Grotesk', sans-serif; letter-spacing: -.045em; margin-bottom: 23px; }.hero-roles { display: grid; gap: 4px; }.hero-roles > span { width: fit-content; max-width: 0; overflow: hidden; white-space: nowrap; border-right: 2px solid transparent; opacity: 0; animation: role-typing 1.1s steps(24, end) forwards; }.hero-roles > span:nth-child(1) { color: var(--violet); text-shadow: 0 0 18px rgba(168,150,255,.45); animation-delay: .5s; }.hero-roles > span:nth-child(2) { color: var(--coral); animation-delay: 1.9s; }
+.hero-lede { font: 500 clamp(1.6rem, 3vw, 2.65rem)/1.12 'Space Grotesk', sans-serif; letter-spacing: -.045em; margin-bottom: 23px; }.hero-roles { display: grid; gap: 4px; }.hero-roles > span { width: fit-content; clip-path: inset(0 100% 0 0); white-space: nowrap; border-right: 2px solid transparent; opacity: 0; animation: role-typing 1.1s steps(24, end) forwards; }.hero-roles > span:nth-child(1) { color: var(--violet); text-shadow: 0 0 18px rgba(168,150,255,.45); animation-delay: .5s; }.hero-roles > span:nth-child(2) { color: var(--coral); animation-delay: 1.9s; }
 .hero-lede strong { color: var(--coral); font-weight: 500; }
 .hero-description { max-width: 510px; color: var(--muted); line-height: 1.8; font-size: 14px; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 33px; }
@@ -47,7 +47,7 @@ h1 em, h2 em { color: var(--violet); font-style: normal; }
 @keyframes rise { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes text-reveal { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes name-glow { 0%, 100% { text-shadow: 0 0 0 rgba(168,150,255,0), 0 0 0 rgba(168,150,255,0); } 50% { text-shadow: 0 0 18px rgba(168,150,255,.5), 0 0 42px rgba(123,92,255,.28); } }
-@keyframes role-typing { 0% { max-width: 0; opacity: 1; border-right-color: var(--violet); } 8%, 88% { border-right-color: var(--violet); } 100% { max-width: 100%; opacity: 1; border-right-color: transparent; } }
+@keyframes role-typing { 0% { clip-path: inset(0 100% 0 0); opacity: 1; border-right-color: var(--violet); } 8%, 88% { border-right-color: var(--violet); } 100% { clip-path: inset(0 0 0 0); opacity: 1; border-right-color: transparent; } }
 @keyframes orbit-spin { to { transform: rotate(360deg); } }
 @keyframes orbit-spin-reverse { to { transform: rotate(-360deg); } }
 @keyframes photo-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
