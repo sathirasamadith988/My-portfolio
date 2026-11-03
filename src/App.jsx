@@ -105,6 +105,10 @@ const softSkills = [
   ['Leadership & project coordination', BriefcaseBusiness],
   ['Creative problem solving', BrainCircuit],
   ['Adaptability & continuous learning', GraduationCap],
+  ['Critical thinking & decision making', BrainCircuit],
+  ['Time management & prioritization', BriefcaseBusiness],
+  ['Presentation & active listening', Sparkles],
+  ['Teamwork & conflict resolution', GraduationCap],
 ];
 
 const technicalStack = [
@@ -146,6 +150,13 @@ function App() {
   }, []);
 
   const closeMenu = () => setMenuOpen(false);
+  const openSection = (sectionId) => {
+    window.history.pushState({}, '', `/#${sectionId}`);
+    setSelectedProject(null);
+    setShowDesignCatalog(false);
+    closeMenu();
+    window.setTimeout(() => document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' }), 0);
+  };
   const openProject = (project) => {
     window.history.pushState({}, '', `/projects/${project.slug}`);
     setSelectedProject(project);
@@ -215,10 +226,10 @@ function App() {
           <div className={`nav-links ${menuOpen ? 'is-open' : ''}`}>
             <a className="nav-home" href="#top" onClick={closeMenu}>Home</a>
             <a href="#work" onClick={closeMenu}>Work</a>
-            <a href="#skills" onClick={closeMenu}>Skills</a>
-            <a href="#about" onClick={closeMenu}>About</a>
-            <a href="#contact" onClick={closeMenu}>Contact</a>
-            <a className="nav-contact nav-hire" href="#contact" onClick={closeMenu}>Hire me <ArrowUpRight size={14} /></a>
+            <a href="#skills" onClick={(event) => { event.preventDefault(); openSection('skills'); }}>Skills</a>
+            <a href="#skills" onClick={(event) => { event.preventDefault(); openSection('skills'); }}>About</a>
+            <a href="#contact" onClick={(event) => { event.preventDefault(); openSection('contact'); }}>Contact</a>
+            <a className="nav-contact nav-hire" href="#contact" onClick={(event) => { event.preventDefault(); openSection('contact'); }}>Hire me <ArrowUpRight size={14} /></a>
           </div>
         </nav>
       </header>
@@ -227,7 +238,7 @@ function App() {
         {selectedProject ? <ProjectDetail project={selectedProject} onBack={showDesignCatalog ? openDesignCatalog : closeProject} onPrevious={openPreviousProject} onNext={openNextProject} /> : showDesignCatalog ? <DesignCatalog onBack={closeProject} onOpenProject={openDesignProject} /> : <>
         <section className="hero container">
           <div className="hero-copy">
-            <h1 className="hero-name"><span className="hero-outline-text">Hello, I&apos;m</span><br /><em>Sathira Samadith</em></h1>
+            <h1 className="hero-name"><span className="hero-outline-text">Hello, I&apos;m</span><br /><em><span className="hero-first-name">Sathira</span> <span className="hero-last-name">Samadith</span></em></h1>
             <p className="hero-lede hero-roles" aria-label="Full Stack Developer, Graphic Designer and Freelancer">
               <RoleText text="Full Stack Developer" typingDuration="2.8s" typingDelay=".4s" letterStart="3.25s" />
               <RoleText text="Graphic Designer and Freelancer" typingDuration="3.4s" typingDelay="3.5s" letterStart="6.95s" />
@@ -241,7 +252,7 @@ function App() {
               <a href="https://github.com/sathirasamadith988" target="_blank" rel="noreferrer" aria-label="GitHub"><svg className="github-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.084-.729.084-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.834 2.809 1.304 3.495.997.108-.776.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" /></svg></a>
               <a href="https://www.linkedin.com/in/sathira-samadith-59412938/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><img className="linkedin-icon" src="/linkedin-logo.png" alt="" /></a>
               <a href="https://mail.google.com/mail/?view=cm&fs=1&to=sathirasamadith500%40gmail.com" target="_blank" rel="noreferrer" aria-label="Email"><Mail size={17} /></a>
-              <a href="#skills" aria-label="Skills"><Sparkles size={17} /></a>
+              <a href="#skills" onClick={(event) => { event.preventDefault(); openSection('skills'); }} aria-label="Skills"><Sparkles size={17} /></a>
             </div>
           </div>
           <div className="hero-art">
@@ -259,7 +270,7 @@ function App() {
         </section>
 
         <section className="section container" id="work">
-          <div className="section-heading"><SectionLabel index="01">Selected work</SectionLabel><h2>Design <em>& development</em></h2><p>Two disciplines, one approach: make complex ideas useful, distinctive, and ready to meet the real world.</p></div>
+          <div className="section-heading"><SectionLabel index="01">Selected work</SectionLabel><h2 className="work-heading">Design <em>& development</em></h2><p>Two disciplines, one approach: make complex ideas useful, distinctive, and ready to meet the real world.</p></div>
           <div className="project-grid">
             {projects.map(({ number, type, title, description, label, icon: Icon, accent }) => (
               <article className={`project-card accent-${accent}`} key={title}>
